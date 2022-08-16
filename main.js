@@ -34,7 +34,7 @@ const app = {
             name: 'Bad Boy',
             singer: 'Big Bang',
             path: './assets/music/song1.mp3',
-            image: './assets/img/song1.jpg'
+            image: 'https://scontent.fhan2-4.fna.fbcdn.net/v/t39.30808-1/296347202_1242587183152913_1839438957402299870_n.jpg?stp=dst-jpg_s320x320&_nc_cat=104&ccb=1-7&_nc_sid=7206a8&_nc_ohc=JaL0mT7lcd0AX9KFlpJ&_nc_ht=scontent.fhan2-4.fna&oh=00_AT_KnflE6tJq_m0prAvG_H92t_L-MpyAivGYzw7fnN8-ew&oe=630039DE'
         },
         {
             name: 'Next Level',
