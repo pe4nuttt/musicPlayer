@@ -310,10 +310,12 @@ const app = {
         }, 200)
     },
     loadCurrentSong: function () {
-        heading.innerText = this.currentSong.name
-        cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`
-        audio.src = this.currentSong.path
-        this.setConfig('currentIndex', this.currentIndex)
+        if(this.currentSong) {
+            heading.innerText = this.currentSong.name
+            cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`
+            audio.src = this.currentSong.path
+            this.setConfig('currentIndex', this.currentIndex)
+        }
     },
     loadVolumeRange: function() {
         volumeSet.value = this.songVolume; 
@@ -334,8 +336,7 @@ const app = {
             }
         }
     },
-    loadConfig: async function () {
-        console.log(3)
+    loadConfig: function () {
         this.isRandom = this.config['isRandom']
         this.isRepeat = this.config['isRepeat']
         this.currentIndex = this.config.currentIndex
@@ -374,38 +375,31 @@ const app = {
         // this.currentIndex = newIndex
         // this.loadCurrentSong()
     },
-    start: async function () {
-        const _this = this
-        console.log(1)
-
+    start: function () {
         // Gán cấu hình từ config vào ứng dụng
-        // await this.loadConfig();
+        this.loadConfig();
 
-        console.log(2)
+        // 
+        this.loadVolumeRange();
 
-        setTimeout(async function() {
-            // 
-            _this.loadVolumeRange();
-    
-            // Tạo mảng random list
-            _this.createRandomList();
-    
-            // Định nghĩa các thuộc tính cho object
-            _this.defineProperties();
-    
-            // Lắng nghe và xử lý các sự kiện (DOM Events)
-            _this.handleEvents();
-    
-            // Tải thông tin bài hát hiện tại vào UI khi chạy ứng dụng
-            _this.loadCurrentSong();
-    
-            // Render playlist
-            _this.render();
-    
-            // Hiển thị trạng thái ban đầu của button repeat và random
-            randomBtn.classList.toggle('active', _this.isRandom);
-            repeatBtn.classList.toggle('active', _this.isRepeat);
-        }, 3000)
+        // Tạo mảng random list
+        this.createRandomList();
+
+        // Định nghĩa các thuộc tính cho object
+        this.defineProperties();
+
+        // Lắng nghe và xử lý các sự kiện (DOM Events)
+        this.handleEvents();
+
+        // Tải thông tin bài hát hiện tại vào UI khi chạy ứng dụng
+        this.loadCurrentSong();
+
+        // Render playlist
+        this.render();
+
+        // Hiển thị trạng thái ban đầu của button repeat và random
+        randomBtn.classList.toggle('active', this.isRandom);
+        repeatBtn.classList.toggle('active', this.isRepeat);
     }
 
 }
