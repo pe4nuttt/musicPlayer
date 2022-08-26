@@ -256,7 +256,7 @@ const app = {
         }
 
         // Xử lý khi chỉnh Volume
-        volumeSet.oninput = function(e) {
+        volumeSet.onchange = function(e) {
             _this.songVolume = e.target.value
             _this.prevVolume = _this.songVolume
             audio.volume = _this.songVolume / 100
