@@ -341,7 +341,7 @@ const app = {
         this.isRepeat = this.config['isRepeat']
         this.currentIndex = this.config.currentIndex
         this.songVolume = this.config.songVolume 
-        audio.volume = Math.floor(this.songVolume / 100)
+        audio.volume = this.songVolume / 100
         this.prevVolume = this.songVolume
     },
     nextSong: function () {
