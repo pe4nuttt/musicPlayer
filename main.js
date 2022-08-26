@@ -34,7 +34,7 @@ const app = {
             name: 'Bad Boy',
             singer: 'Big Bang',
             path: './assets/music/song1.mp3',
-            image: 'https://scontent.fhan2-4.fna.fbcdn.net/v/t39.30808-1/296347202_1242587183152913_1839438957402299870_n.jpg?stp=dst-jpg_s320x320&_nc_cat=104&ccb=1-7&_nc_sid=7206a8&_nc_ohc=JaL0mT7lcd0AX9KFlpJ&_nc_ht=scontent.fhan2-4.fna&oh=00_AT_KnflE6tJq_m0prAvG_H92t_L-MpyAivGYzw7fnN8-ew&oe=630039DE'
+            image: './assets/img/song1.jpg'
         },
         {
             name: 'Next Level',
@@ -339,7 +339,7 @@ const app = {
         this.isRepeat = this.config['isRepeat']
         this.currentIndex = this.config.currentIndex
         this.songVolume = this.config.songVolume 
-        audio.volume = this.songVolume / 100
+        audio.volume = Math.floor(this.songVolume / 100)
         this.prevVolume = this.songVolume
     },
     nextSong: function () {
@@ -373,31 +373,31 @@ const app = {
         // this.currentIndex = newIndex
         // this.loadCurrentSong()
     },
-    start: function () {
+    start: async function () {
         // Gán cấu hình từ config vào ứng dụng
-        this.loadConfig();
+        await this.loadConfig();
 
         // 
-        this.loadVolumeRange();
+        await this.loadVolumeRange();
 
         // Tạo mảng random list
-        this.createRandomList();
+        await this.createRandomList();
 
         // Định nghĩa các thuộc tính cho object
-        this.defineProperties();
+        await this.defineProperties();
 
         // Lắng nghe và xử lý các sự kiện (DOM Events)
-        this.handleEvents();
+        await this.handleEvents();
 
         // Tải thông tin bài hát hiện tại vào UI khi chạy ứng dụng
-        this.loadCurrentSong();
+        await this.loadCurrentSong();
 
         // Render playlist
-        this.render();
+        await this.render();
 
         // Hiển thị trạng thái ban đầu của button repeat và random
-        randomBtn.classList.toggle('active', this.isRandom);
-        repeatBtn.classList.toggle('active', this.isRepeat);
+        await randomBtn.classList.toggle('active', this.isRandom);
+        await repeatBtn.classList.toggle('active', this.isRepeat);
     }
 
 }
