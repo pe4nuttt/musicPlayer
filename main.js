@@ -334,7 +334,7 @@ const app = {
             }
         }
     },
-    loadConfig: function () {
+    loadConfig: async function () {
         this.isRandom = this.config['isRandom']
         this.isRepeat = this.config['isRepeat']
         this.currentIndex = this.config.currentIndex
