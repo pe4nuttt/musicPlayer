@@ -379,7 +379,7 @@ const app = {
         console.log(1)
 
         // Gán cấu hình từ config vào ứng dụng
-        await this.loadConfig();
+        // await this.loadConfig();
 
         console.log(2)
 
