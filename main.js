@@ -321,7 +321,7 @@ const app = {
         volumeSet.value = this.songVolume; 
         var volumeColor = `linear-gradient(90deg, var(--primary-color) ${this.songVolume}%, #d3d3d3 ${this.songVolume}%)`
         volumeSet.style.background = volumeColor
-        this.setConfig('songVolume', this.songVolume)
+        // this.setConfig('songVolume', this.songVolume)
         this.volumeIconHandle()
     },
     volumeIconHandle: function() {
@@ -340,9 +340,9 @@ const app = {
         this.isRandom = this.config['isRandom']
         this.isRepeat = this.config['isRepeat']
         this.currentIndex = this.config.currentIndex
-        this.songVolume = this.config.songVolume 
-        audio.volume = this.songVolume / 100
-        this.prevVolume = this.songVolume
+        // this.songVolume = this.config.songVolume
+        // audio.volume = this.songVolume / 100
+        // this.prevVolume = this.songVolume
     },
     nextSong: function () {
         this.currentIndex++;
