@@ -375,6 +375,7 @@ const app = {
         // this.loadCurrentSong()
     },
     start: async function () {
+        const _this = this
         console.log(1)
 
         // Gán cấu hình từ config vào ứng dụng
@@ -382,27 +383,29 @@ const app = {
 
         console.log(2)
 
-        // 
-        await this.loadVolumeRange();
-
-        // Tạo mảng random list
-        await this.createRandomList();
-
-        // Định nghĩa các thuộc tính cho object
-        await this.defineProperties();
-
-        // Lắng nghe và xử lý các sự kiện (DOM Events)
-        await this.handleEvents();
-
-        // Tải thông tin bài hát hiện tại vào UI khi chạy ứng dụng
-        await this.loadCurrentSong();
-
-        // Render playlist
-        await this.render();
-
-        // Hiển thị trạng thái ban đầu của button repeat và random
-        await randomBtn.classList.toggle('active', this.isRandom);
-        await repeatBtn.classList.toggle('active', this.isRepeat);
+        setTimeout(async function() {
+            // 
+            _this.loadVolumeRange();
+    
+            // Tạo mảng random list
+            _this.createRandomList();
+    
+            // Định nghĩa các thuộc tính cho object
+            _this.defineProperties();
+    
+            // Lắng nghe và xử lý các sự kiện (DOM Events)
+            _this.handleEvents();
+    
+            // Tải thông tin bài hát hiện tại vào UI khi chạy ứng dụng
+            _this.loadCurrentSong();
+    
+            // Render playlist
+            _this.render();
+    
+            // Hiển thị trạng thái ban đầu của button repeat và random
+            randomBtn.classList.toggle('active', _this.isRandom);
+            repeatBtn.classList.toggle('active', _this.isRepeat);
+        }, 3000)
     }
 
 }
