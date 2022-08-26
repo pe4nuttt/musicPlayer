@@ -335,6 +335,7 @@ const app = {
         }
     },
     loadConfig: async function () {
+        console.log(3)
         this.isRandom = this.config['isRandom']
         this.isRepeat = this.config['isRepeat']
         this.currentIndex = this.config.currentIndex
@@ -374,8 +375,12 @@ const app = {
         // this.loadCurrentSong()
     },
     start: async function () {
+        console.log(1)
+
         // Gán cấu hình từ config vào ứng dụng
         await this.loadConfig();
+
+        console.log(2)
 
         // 
         await this.loadVolumeRange();
